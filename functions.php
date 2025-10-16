@@ -140,9 +140,9 @@
     }
 
     //Create an instance of the class
-    $testimonials = new AstraChildTEstinmonialCPT();
+    $testimonials = new AstraChildTestinmonialCPT();
 
-    class AstraChildTEstinmonialCPT {
+    class AstraChildTestinmonialCPT {
         //The constructor is called when the class is instantiated
         function __construct(){
             //Use the add action hook upon instantiation of the class
@@ -153,7 +153,7 @@
         }
 
         //Made the function private as it should only be called from the class itself
-        private function register_testimonial_cpt(){
+        public function register_testimonial_cpt(){
             register_post_type('testimonial', array(
                 'labels' => array(
                     'name' => __('Testimonials'),
@@ -169,7 +169,7 @@
         }
         
         //Made the function private as it should only be called from the class itself
-        private function astra_child_display_testimonials_shortcode() {
+        public function astra_child_display_testimonials_shortcode() {
             $args = array(
                 'post_type' => 'testimonial',
                 'posts_per_page' => -1,
