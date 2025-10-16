@@ -1,0 +1,114 @@
+/*
+ Theme Name:   Astra Child
+ Theme URI:    https://wpastra.com/
+ Description:  Astra Child Theme
+ Author:       Vincent Verso
+ Author URI:   http://internship-wp-site.local
+ Template:     astra
+ Version:      1.0.0
+ Text Domain:  astra-child
+*/
+
+/*
+----------------------------------------------------------------
+ Related Posts Section Styling
+----------------------------------------------------------------
+*/
+
+/* --- Main Container --- */
+.related-posts {
+    margin-top: 60px; /* Adds space above the section */
+    padding-top: 40px; /* Adds space below the border */
+    border-top: 1px solid #EFEBE5; /* A subtle separator line */
+    clear: both; /* Ensures it appears below any floated content */
+    width: 100%;
+}
+
+/* --- Section Heading ("Related Posts") --- */
+.related-posts h3 {
+    text-align: center;
+    font-family: 'Playfair Display', serif; /* Use a font that matches your brand */
+    font-size: 32px;
+    color: #4A5C3A; /* Your brand's olive green */
+    margin-bottom: 40px;
+}
+
+/* --- The Grid Layout --- */
+.related-posts-grid {
+    display: grid;
+    /* This creates responsive columns. It will stack to 1 column on mobile. */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* The space between the cards */
+}
+
+/* --- Individual Post Card --- */
+.related-post {
+    background-color: #fff; /* A clean white or use #F9F6F1 for off-white */
+    border-radius: 15px; /* Matches your site's rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* Keeps the image corners rounded */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Hover Effect for the Card --- */
+.related-post:hover {
+    transform: translateY(-5px); /* Lifts the card up slightly */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Linked Image --- */
+.related-post a {
+    display: block;
+}
+
+.related-post img {
+    width: 100%;
+    height: 180px; /* A fixed height creates a uniform look */
+    object-fit: cover; /* Prevents the image from stretching or squishing */
+    display: block;
+}
+
+/* --- Post Title --- */
+.related-post h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 20px 25px 10px 25px; /* Adds spacing around the text */
+}
+
+.related-post h4 a {
+    text-decoration: none;
+    color: inherit; /* Takes the color from the h4 tag */
+}
+
+.related-post h4 a:hover {
+    text-decoration: underline;
+}
+
+/* --- Post Excerpt --- */
+.related-post p {
+    font-family: 'Roboto', sans-serif; /* A clean, readable font */
+    font-size: 15px;
+    line-height: 1.6;
+    color: #020101;
+    margin: 0;
+    padding: 0 25px 25px 25px; /* Matches the h4 padding */
+    flex-grow: 1; /* Allows the card to grow if text is longer */
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .related-posts h3 {
+        font-size: 28px;
+    }
+
+    .related-post h4 {
+        font-size: 18px;
+    }
+
+    .related-post p {
+        font-size: 14px;
+    }
+}
