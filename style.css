@@ -19,7 +19,7 @@
 .related-posts {
     margin-top: 60px; /* Adds space above the section */
     padding-top: 40px; /* Adds space below the border */
-    border-top: 1px solid #EFEBE5; /* A subtle separator line */
+    border-top: 1px solid #ffba53; /* A subtle separator line */
     clear: both; /* Ensures it appears below any floated content */
     width: 100%;
 }
