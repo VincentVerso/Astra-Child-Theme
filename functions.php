@@ -27,54 +27,54 @@
     }
 
     
-// // Register Testimonial Custom Post Type
-// add_action('init', 'astra_child_create_testimonial_cpt');
-// function astra_child_create_testimonial_cpt(){
-//     register_post_type('testimonial', array(
-//         'labels' => array(
-//             'name' => __('Testimonials'),
-//             'singular_name' => __('Testimonial')
-//         ),
-//         'public' => true,
-//         'has_archive' => true,
-//         'rewrite' => array('slug' => 'testimonials'),
-//         'show_in_rest' => true, // Enables Gutenberg editor
-//         'menu_icon' => 'dashicons-testimonial', // Valid Dashicon
-//         'supports' => array('title', 'editor', 'thumbnail')
-//     ));
-// }
+// Register Testimonial Custom Post Type
+add_action('init', 'astra_child_create_testimonial_cpt');
+function astra_child_create_testimonial_cpt(){
+    register_post_type('testimonial', array(
+        'labels' => array(
+            'name' => __('Testimonials'),
+            'singular_name' => __('Testimonial')
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'testimonials'),
+        'show_in_rest' => true, // Enables Gutenberg editor
+        'menu_icon' => 'dashicons-testimonial', // Valid Dashicon
+        'supports' => array('title', 'editor', 'thumbnail')
+    ));
+}
 
-//     // Create Shortcode to display Testimonials
-//     add_shortcode( 'display_testimonials', 'astra_child_display_testimonials_shortcode' );
-//     function astra_child_display_testimonials_shortcode() {
-//         $args = array(
-//             'post_type' => 'testimonial',
-//             'posts_per_page' => -1,
-//         );
-//         $query = new WP_Query($args);
-//         ob_start(); // Start output buffering
-//         if ( $query->have_posts() ) {
-//             echo '<div class="testimonials-container">';
-//         while ( $query->have_posts() ) {
+    // Create Shortcode to display Testimonials
+    add_shortcode( 'display_testimonials', 'astra_child_display_testimonials_shortcode' );
+    function astra_child_display_testimonials_shortcode() {
+        $args = array(
+            'post_type' => 'testimonial',
+            'posts_per_page' => -1,
+        );
+        $query = new WP_Query($args);
+        ob_start(); // Start output buffering
+        if ( $query->have_posts() ) {
+            echo '<div class="testimonials-container">';
+        while ( $query->have_posts() ) {
 
-//             $query->the_post();
+            $query->the_post();
 
-//             echo '<div class="single-testimonial">';
+            echo '<div class="single-testimonial">';
 
-//             if ( has_post_thumbnail() ) {
-//                 the_post_thumbnail('thumbnail');
-//             }
-//             echo '<h3>' . get_the_title() . '</h3>';
-//             echo '<div class="testimonial-content">' . get_the_content() . '</div>';
-//             echo '</div>';
-//         }
-//         echo '</div>';
-//         wp_reset_postdata();
-//         } else{
-//             echo 'No testimonials found.';
-//         }   
-//         return ob_get_clean(); // Return the buffered output
-//     }
+            if ( has_post_thumbnail() ) {
+                the_post_thumbnail('thumbnail');
+            }
+            echo '<h3>' . get_the_title() . '</h3>';
+            echo '<div class="testimonial-content">' . get_the_content() . '</div>';
+            echo '</div>';
+        }
+        echo '</div>';
+        wp_reset_postdata();
+        } else{
+            echo 'No testimonials found.';
+        }   
+        return ob_get_clean(); // Return the buffered output
+    }
 
     
         add_action('astra_entry_content_after', 'astra_child_display_related_posts');
