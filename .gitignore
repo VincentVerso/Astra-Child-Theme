@@ -1,0 +1,5 @@
+# .gitignore for WordPress Child theme
+
+debug.log
+.DS_Store
+node_modules/
